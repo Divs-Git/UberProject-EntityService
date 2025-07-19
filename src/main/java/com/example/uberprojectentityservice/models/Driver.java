@@ -1,5 +1,6 @@
 package com.example.uberprojectentityservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -49,5 +50,6 @@ public class Driver extends BaseModel{
     // 1 : n -> Driver: bookings
     @OneToMany(mappedBy = "driver")
     @Fetch(FetchMode.SUBSELECT)
+    @JsonIgnore
     private List<Booking> bookings;
 }
